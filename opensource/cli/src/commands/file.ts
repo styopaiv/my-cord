@@ -53,7 +53,7 @@ export const fileCommand = {
       .demand(1)
       .command(
         'upload',
-        "Upload a file to Cord's file storage: POST https://api.cord.com/v1/files",
+        "Upload a file to Cord's file storage: POST https://localhost:8161/v1/files",
         (yargs: Argv) => yargs.options(uploadFileOptions),
         uploadFileHandler,
       );

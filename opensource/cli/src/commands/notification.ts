@@ -116,7 +116,7 @@ export const notificationCommand = {
       .demand(1)
       .command(
         'ls <userID>',
-        'List all notifications a user has received: GET https://api.cord.com/v1/users/<USER_ID>/notifications',
+        'List all notifications a user has received: GET https://localhost:8161/v1/users/<USER_ID>/notifications',
         (yargs: Argv) =>
           yargs
             .positional('userID', userIdPositional.userID)
@@ -125,13 +125,13 @@ export const notificationCommand = {
       )
       .command(
         'create',
-        'Create a notification: POST https://api.cord.com/v1/notifications',
+        'Create a notification: POST https://localhost:8161/v1/notifications',
         (yargs: Argv) => yargs.options(createNotificationOptions),
         createNotificationHandler,
       )
       .command(
         'delete <id>',
-        'Delete a notification: DELETE https://api.cord.com/v1/notifications/<NOTIFICATION_ID>',
+        'Delete a notification: DELETE https://localhost:8161/v1/notifications/<NOTIFICATION_ID>',
         (yargs: Argv) => yargs.positional('id', idPositional.id),
         deleteNotificationHandler,
       );

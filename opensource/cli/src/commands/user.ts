@@ -244,19 +244,19 @@ export const userCommand = {
       .demand(1)
       .command(
         'ls',
-        'List all users: GET https://api.cord.com/v1/users',
+        'List all users: GET https://localhost:8161/v1/users',
         (yargs: Argv) => yargs.options(listAllUsersParameters),
         listAllUsersHandler,
       )
       .command(
         'get <id>',
-        'Get a user: GET https://api.cord.com/v1/users/<ID>',
+        'Get a user: GET https://localhost:8161/v1/users/<ID>',
         (yargs: Argv) => yargs.positional('id', idPositional.id),
         getUserHandler,
       )
       .command(
         'create <id>',
-        'Create a user: PUT https://api.cord.com/v1/users/<ID>',
+        'Create a user: PUT https://localhost:8161/v1/users/<ID>',
         (yargs: Argv) =>
           yargs
             .options(createOrUpdateUserOptions)
@@ -265,7 +265,7 @@ export const userCommand = {
       )
       .command(
         'update <id>',
-        'Update a user: PUT https://api.cord.com/v1/users/<ID>',
+        'Update a user: PUT https://localhost:8161/v1/users/<ID>',
         (yargs: Argv) =>
           yargs
             .options(createOrUpdateUserOptions)
@@ -274,7 +274,7 @@ export const userCommand = {
       )
       .command(
         'update-presence <id>',
-        "Update a user's location: PUT https://api.cord.com/v1/users/<USER_ID>/presence",
+        "Update a user's location: PUT https://localhost:8161/v1/users/<USER_ID>/presence",
         (yargs: Argv) =>
           yargs
             .options(updateUserPresenceOptions)
@@ -283,20 +283,20 @@ export const userCommand = {
       )
       .command(
         'delete <id>',
-        'Delete a user: DELETE https://api.cord.com/v1/users/<ID>',
+        'Delete a user: DELETE https://localhost:8161/v1/users/<ID>',
         (yargs: Argv) =>
           yargs.options(deleteUserOptions).positional('id', idPositional.id),
         deleteUserHandler,
       )
       .command(
         'ls-preferences <id>',
-        'List all preferences for a user: GET https://api.cord.com/v1/users/<USER_ID>/preferences',
+        'List all preferences for a user: GET https://localhost:8161/v1/users/<USER_ID>/preferences',
         (yargs: Argv) => yargs.positional('id', idPositional.id),
         listAllPreferencesHandler,
       )
       .command(
         'update-preferences <id>',
-        'Update preferences for a user: PUT https://api.cord.com/v1/<USER_ID>/preferences',
+        'Update preferences for a user: PUT https://localhost:8161/v1/<USER_ID>/preferences',
         (yargs: Argv) =>
           yargs
             .options(updatePreferencesOptions)

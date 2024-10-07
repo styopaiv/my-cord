@@ -284,20 +284,20 @@ export const messageCommand = {
       .demand(1)
       .command(
         'ls',
-        'List all messages: GET https://api.cord.com/v1/messages',
+        'List all messages: GET https://localhost:8161/v1/messages',
         (yargs: Argv) => yargs.options(listAllMessagesParameters),
         listAllMessagesHandler,
       )
       .command(
         'get <id>',
-        'Get a message: GET https://api.cord.com/v1/threads/<threadID>/messages/<messageID>',
+        'Get a message: GET https://localhost:8161/v1/threads/<threadID>/messages/<messageID>',
         (yargs: Argv) =>
           yargs.positional('id', idPositional.id).options(threadIdOption),
         getMessageHandler,
       )
       .command(
         'create [id]',
-        'Add a new message to a thread: POST https://api.cord.com/v1/threads/<ID>/messages',
+        'Add a new message to a thread: POST https://localhost:8161/v1/threads/<ID>/messages',
         (yargs: Argv) =>
           yargs
             .options({ ...createMessageOptions, ...threadIdOption })
@@ -315,7 +315,7 @@ export const messageCommand = {
       )
       .command(
         'update <id>',
-        'Update a message: PUT https://api.cord.com/v1/threads/<threadID>/messages/<messageID>',
+        'Update a message: PUT https://localhost:8161/v1/threads/<threadID>/messages/<messageID>',
         (yargs: Argv) =>
           yargs
             .options({ ...updateMessageOptions, ...threadIdOption })
@@ -324,7 +324,7 @@ export const messageCommand = {
       )
       .command(
         'delete <id>',
-        'Delete a message: DELETE https://api.cord.com/v1/threads/<threadID>/messages/<messageID>',
+        'Delete a message: DELETE https://localhost:8161/v1/threads/<threadID>/messages/<messageID>',
         (yargs: Argv) =>
           yargs.positional('id', idPositional.id).options(threadIdOption),
         deleteMessageHandler,

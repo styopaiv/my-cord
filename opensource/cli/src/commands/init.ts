@@ -7,6 +7,7 @@ async function initializeCord() {
   const defaultAnswers = await getEnvVariables().catch(() => {
     /*no-op. probably just doesn't exist yet*/
   });
+  console.log('Loaded environment variables:', defaultAnswers);
   console.log(
     'All of the following can be found at https://console.cord.com/projects',
   );

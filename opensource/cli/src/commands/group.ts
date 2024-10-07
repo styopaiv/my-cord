@@ -150,19 +150,19 @@ export const groupCommand = {
       .demand(1)
       .command(
         'ls',
-        'List all groups: GET https://api.cord.com/v1/groups',
+        'List all groups: GET https://localhost:8161/v1/groups',
         (yargs) => yargs,
         listAllOrgsHandler,
       )
       .command(
         'get <groupID>',
-        'Get a group: GET https://api.cord.com/v1/groups/<ID>',
+        'Get a group: GET https://localhost:8161/v1/groups/<ID>',
         (yargs: Argv) => yargs.positional('groupID', groupIdPositional.groupID),
         getOrgHandler,
       )
       .command(
         'create <groupID>',
-        'Create a group: PUT https://api.cord.com/v1/groups/<ID>',
+        'Create a group: PUT https://localhost:8161/v1/groups/<ID>',
         (yargs: Argv) =>
           yargs
             .positional('groupID', groupIdPositional.groupID)
@@ -171,7 +171,7 @@ export const groupCommand = {
       )
       .command(
         'update <groupID>',
-        'Update a group: PUT https://api.cord.com/v1/groups/<ID>',
+        'Update a group: PUT https://localhost:8161/v1/groups/<ID>',
         (yargs: Argv) =>
           yargs
             .positional('groupID', groupIdPositional.groupID)
@@ -180,13 +180,13 @@ export const groupCommand = {
       )
       .command(
         'delete <groupID>',
-        'Delete a group: DELETE https://api.cord.com/v1/groups/<ID>',
+        'Delete a group: DELETE https://localhost:8161/v1/groups/<ID>',
         (yargs: Argv) => yargs.positional('groupID', groupIdPositional.groupID),
         deleteOrgHandler,
       )
       .command(
         'get-members <groupID>',
-        'List all members in a group: GET https://api.cord.com/v1/groups/<ID>/members',
+        'List all members in a group: GET https://localhost:8161/v1/groups/<ID>/members',
         (yargs: Argv) =>
           yargs
             .positional('groupID', groupIdPositional.groupID)
@@ -195,7 +195,7 @@ export const groupCommand = {
       )
       .command(
         'add-member <groupID>',
-        'Add a member to a group: POST https://api.cord.com/v1/groups/<ID>/members',
+        'Add a member to a group: POST https://localhost:8161/v1/groups/<ID>/members',
         (yargs: Argv) =>
           yargs
             .positional('groupID', groupIdPositional.groupID)
@@ -204,7 +204,7 @@ export const groupCommand = {
       )
       .command(
         'remove-member <groupID>',
-        'Remove a member from a group: POST https://api.cord.com/v1/groups/<ID>/members',
+        'Remove a member from a group: POST https://localhost:8161/v1/groups/<ID>/members',
         (yargs: Argv) =>
           yargs
             .positional('groupID', groupIdPositional.groupID)

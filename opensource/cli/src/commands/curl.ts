@@ -74,13 +74,13 @@ export const curlCommand = {
       .demand(1)
       .command(
         '$0',
-        'cord authorized curl request. Prefix request with --. E.g. cord curl -- https://api.cord.com/v1/groups',
+        'cord authorized curl request. Prefix request with --. E.g. cord curl -- https://localhost:8161/v1/groups',
         (yargs) => yargs,
         curlTypeHandler('general'),
       )
       .command(
         ['project', 'app', 'application'],
-        'cord authorized curl project level request. Prefix request with --. E.g. cord curl project -- https://api.cord.com/v1/projects',
+        'cord authorized curl project level request. Prefix request with --. E.g. cord curl project -- https://localhost:8161/v1/projects',
         (yargs) => yargs,
         curlTypeHandler('project'),
       )

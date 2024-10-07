@@ -272,13 +272,13 @@ export const threadCommand = {
       .demand(1)
       .command(
         'get <id>',
-        'Get a thread summary: GET https://api.cord.com/v1/threads/<ID>',
+        'Get a thread summary: GET https://localhost:8161/v1/threads/<ID>',
         (yargs: Argv) => yargs.positional('id', idPositional.id),
         getThreadHandler,
       )
       .command(
         'create [id]',
-        'Create a new thread: POST https://api.cord.com/v1/threads',
+        'Create a new thread: POST https://localhost:8161/v1/threads',
         (yargs: Argv) =>
           yargs
             .options({ ...createThreadOptions })
@@ -287,7 +287,7 @@ export const threadCommand = {
       )
       .command(
         'get-messages <id>',
-        'Get messages in a thread: GET https://api.cord.com/v1/threads/<ID>/messages',
+        'Get messages in a thread: GET https://localhost:8161/v1/threads/<ID>/messages',
         (yargs: Argv) =>
           yargs
             .positional('id', idPositional.id)
@@ -296,20 +296,20 @@ export const threadCommand = {
       )
       .command(
         'ls',
-        'List all threads: GET https://api.cord.com/v1/threads/',
+        'List all threads: GET https://localhost:8161/v1/threads/',
         (yargs: Argv) => yargs.options(listAllThreadsParameters),
         listAllThreadsHandler,
       )
       .command(
         'update <id>',
-        'Update a thread: PUT https://api.cord.com/v1/threads/<ID>',
+        'Update a thread: PUT https://localhost:8161/v1/threads/<ID>',
         (yargs: Argv) =>
           yargs.positional('id', idPositional.id).options(updateThreadOptions),
         updateThreadHandler,
       )
       .command(
         'delete <id>',
-        'Delete a thread: DELETE https://api.cord.com/v1/threads/<ID>',
+        'Delete a thread: DELETE https://localhost:8161/v1/threads/<ID>',
         (yargs: Argv) => yargs.positional('id', idPositional.id),
         deleteThreadHandler,
       );

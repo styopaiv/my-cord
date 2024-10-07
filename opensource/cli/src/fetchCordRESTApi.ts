@@ -5,7 +5,7 @@ import {
 } from '@cord-sdk/server';
 import { getEnvVariables } from 'src/utils';
 
-const DEFAULT_CORD_API_URL = 'https://api.cord.com/v1';
+const DEFAULT_CORD_API_URL = 'https://localhost:8161/v1';
 
 export async function fetchCordRESTApi<T>(
   endpoint: string,
@@ -30,16 +30,30 @@ export async function fetchCordRESTApi<T>(
     ...(typeof body === 'string' ? { 'Content-Type': 'application/json' } : {}),
     'X-Cord-Source': 'cli',
   };
+  console.log(`Sending request to: ${api_url}/${endpoint}`);
+  console.log(`Headers: ${JSON.stringify(headers, null, 2)}`);
+  
+  const https = require('https');
+  const agent = new https.Agent({
+    rejectUnauthorized: false
+  });
+
+  console.log('API URL:', api_url);
+  console.log('Project ID:', env.CORD_PROJECT_ID);
+  console.log('Project Secret (first 4 chars):', env.CORD_PROJECT_SECRET.substring(0, 4));
+
   const response = await fetch(`${api_url}/${endpoint}`, {
     method,
     body,
     headers,
+    agent: agent
   });
 
   if (response.ok) {
     return response.json() as T;
   } else {
     const responseText = await response.text();
+    // console.error(`Full response: ${responseText}`);
     throw new Error(
       `Error making Cord API call: ${response.status} ${response.statusText} ${responseText}`,
     );

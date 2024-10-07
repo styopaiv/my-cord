@@ -126,6 +126,7 @@ import ClientGetGroupMembersHandler from 'server/src/public/routes/platform/clie
 import ClientGetPresenceHandler from 'server/src/public/routes/platform/client/ClientGetPresenceHandler.ts';
 import GetDbDumpHandler from 'server/src/public/routes/platform/customer/GetDbDumpHandler.ts';
 import CopyFilesHandler from 'server/src/public/routes/platform/customer/CopyFilesHandler.ts';
+import GenerateCordTokenHandler from 'server/src/public/routes/handlers/GenerateCordTokenHandler.ts';
 
 export const ASANA_EVENTS_PATH = '/asana/events';
 export const LINEAR_EVENTS_PATH = '/linear/events';
@@ -697,5 +698,7 @@ MainRouter.get('/v1/cli-version', CliVersionHandler);
 
 // Stripe webhooks
 MainRouter.post('/stripe/webhook', StripeWebhookHandler);
+
+MainRouter.post('/generate-cord-token', GenerateCordTokenHandler);
 
 export default MainRouter;

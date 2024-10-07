@@ -192,25 +192,25 @@ export const projectCommand = {
       .demand(1)
       .command(
         'ls',
-        'List all projects: GET https://api.cord.com/v1/projects',
+        'List all projects: GET https://localhost:8161/v1/projects',
         (yargs) => yargs,
         listAllApplicationsHandler,
       )
       .command(
         'get <id>',
-        'Get a project: GET https://api.cord.com/v1/projects/<ID>',
+        'Get a project: GET https://localhost:8161/v1/projects/<ID>',
         (yargs: Argv) => yargs.positional('id', idPositional.id),
         getApplicationHandler,
       )
       .command(
         'create',
-        'Create a project: POST https://api.cord.com/v1/projects',
+        'Create a project: POST https://localhost:8161/v1/projects',
         (yargs: Argv) => yargs.options(createApplicationOptions),
         createApplicationHandler,
       )
       .command(
         'update <id>',
-        'Update a project: PUT https://api.cord.com/v1/projects/<ID>',
+        'Update a project: PUT https://localhost:8161/v1/projects/<ID>',
         (yargs: Argv) =>
           yargs
             .positional('id', idPositional.id)
@@ -219,7 +219,7 @@ export const projectCommand = {
       )
       .command(
         'delete [--force] <id>',
-        'Delete a project: DELETE https://api.cord.com/v1/projects/<ID>',
+        'Delete a project: DELETE https://localhost:8161/v1/projects/<ID>',
         (yargs: Argv) =>
           yargs
             .positional('id', idPositional.id)

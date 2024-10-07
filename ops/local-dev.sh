@@ -45,4 +45,5 @@ else
   npx nodemon --config nodemon-server-snapshots.json &
 fi
 npx nodemon --config nodemon-docs-server.json &
+
 npm run tsc
